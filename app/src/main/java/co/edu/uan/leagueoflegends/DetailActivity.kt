@@ -27,11 +27,12 @@ class DetailActivity : AppCompatActivity() {
      * Load card information
      */
     fun loadCard() {
-        //val image = intent.getStringExtra("cardImage")
-        val text = intent.getStringExtra("cardText")
-        //var imageId = resources.getIdentifier(image,"drawable", packageName)
-        val url = "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ba76f5895f734927f34cbeb6938946caaaa261d1b7cb7d54282cb34b8b810025.png"
-        //cardImage.setImageResource(imageId)
+        val image = intent.getStringExtra("imgname")
+        val text = intent.getStringExtra("imgname")
+        var imageId = resources.getIdentifier(image,"drawable", packageName)
+        cardImage.setImageResource(imageId)
+        /*val url = "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ba76f5895f734927f34cbeb6938946caaaa261d1b7cb7d54282cb34b8b810025.png"
+
         Picasso.get().setLoggingEnabled(true)
         Picasso.get()
             .load(url)
@@ -44,7 +45,8 @@ class DetailActivity : AppCompatActivity() {
                     // Not implemented
                 }
             })
-
+        */
+        /*
         YoYo.with(Techniques.FlipInX)
             .duration(1700)
             .withListener(object: Animator.AnimatorListener {
@@ -63,6 +65,7 @@ class DetailActivity : AppCompatActivity() {
 
             })
             .playOn(cardImage)
+         */
 
     }
 }

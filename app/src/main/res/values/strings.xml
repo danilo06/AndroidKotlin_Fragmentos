@@ -2,4 +2,7 @@
     <string name="app_name">League of legends</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="league_of_legends">League of Legends</string>
+    <string name="infoBienvenida">Selecciona el campeon del cual deseas tener mas informacion</string>
+    <string name="value">0/100</string>
 </resources>
