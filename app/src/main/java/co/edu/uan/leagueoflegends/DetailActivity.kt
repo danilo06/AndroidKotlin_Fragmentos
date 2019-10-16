@@ -1,6 +1,7 @@
 package co.edu.uan.leagueoflegends
 
 import android.animation.Animator
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -25,11 +26,17 @@ class DetailActivity : AppCompatActivity() {
 
     fun clickaction(view: View){
         val text = intent.getStringExtra("imgname")
-        Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show()
-        if(text.equals("")){
-            Toast.makeText(getApplicationContext(),"Toast por defecto", Toast.LENGTH_SHORT).show()
-            txtjinx.text=editText.text.toString()+"/100"
-        }
+        //if(text.equals("jinx")){
+            iniciarActividad(editText.text.toString()+"/100",text)
+        //}
+
+    }
+
+    fun iniciarActividad(cali: String,name: String){
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("nota",cali)
+        intent.putExtra("nombre",name)
+        startActivity(intent)
     }
 
     fun loadCampeones() {

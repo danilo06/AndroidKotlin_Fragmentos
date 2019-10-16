@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-
     private fun AgregaCampeonAlista(card: String) {
         val ib = ImageButton(this)
         var imageId = resources.getIdentifier(getCardCropImage(card),"drawable", packageName)
