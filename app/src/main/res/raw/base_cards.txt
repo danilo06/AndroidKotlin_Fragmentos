@@ -1,0 +1,5 @@
+shortslug,name,cropImage,image,artistName,flavorText,text,attack
+innervate,Innervate,innervate_crop,innervate,Doug Alexander,"Some druids still have flashbacks from strangers yelling ""Innervate me!!"" at them.",Gain 1 Mana Crystal this turn only.,
+moonfire,Moonfire,moonfire_crop,moonfire,Richard Wright,"""Cast Moonfire; and never stop."" - How to Be a Druid; Chapter 5; Section 3",Deal 1 damage.,
+lunara,Lunara,,lunara,,,,
+elise,Elise Starseeker,,elise_starseeker,Arthur Bozonnet,,,
