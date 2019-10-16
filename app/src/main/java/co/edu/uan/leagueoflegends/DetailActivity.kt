@@ -3,9 +3,13 @@ package co.edu.uan.leagueoflegends
 import android.animation.Animator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_detail.*
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 /**
  * Detailed view for a card
@@ -17,6 +21,15 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.hide()
         setContentView(R.layout.activity_detail)
         loadCampeones()
+    }
+
+    fun clickaction(view: View){
+        val text = intent.getStringExtra("imgname")
+        Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show()
+        if(text.equals("")){
+            Toast.makeText(getApplicationContext(),"Toast por defecto", Toast.LENGTH_SHORT).show()
+            txtjinx.text=editText.text.toString()+"/100"
+        }
     }
 
     fun loadCampeones() {
