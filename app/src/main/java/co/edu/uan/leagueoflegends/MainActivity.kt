@@ -9,12 +9,6 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
-import android.widget.Toast
-import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
 
 
 /**
@@ -26,19 +20,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.activity_main)
-        //drawCards()
-    }
-
-    private fun drawCards() {
-        val cardList = readCardsFile()
-        for(card in cardList) {
-            addCard(card)
-        }
+        BuscarCampeones()
     }
 
     fun btnJinxAction(view: View){
-        Toast.makeText(applicationContext,"Toast por defecto", Toast.LENGTH_SHORT).show()
-        //iniciarActividad("jinx")
+        iniciarActividad("jinx")
     }
     fun btnKaisaAction(view: View){
         iniciarActividad("kaisa")
@@ -55,6 +41,8 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("imgname",imgName)
         startActivity(intent)
     }
+
+
     private fun addCard(card: String) {
         val ib = ImageButton(this)
         var imageId = resources.getIdentifier(getCardCropImage(card),"drawable", packageName)
@@ -68,30 +56,12 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("cardText",getCardText(card))
             startActivity(intent)
         }
-        cardsLayout.addView(ib)
+        campeonLayout.addView(ib)
         val tv = TextView(this)
         tv.text = getCardName(card)
-        cardsLayout.addView(tv)
+        campeonLayout.addView(tv)
     }
-
-
-
-    private fun readCardsFile() : ArrayList<String> {
-        // Open the cards file as a raw resource
-        val inputStream = resources.openRawResource(R.raw.base_cards)
-        val scanner = Scanner(inputStream)
-        // Read all the lines of the file
-        val cardsList = ArrayList<String>()
-        scanner.nextLine()
-        while(scanner.hasNextLine()) {
-            val line = scanner.nextLine()
-            cardsList.add(line)
-        }
-        scanner.close()
-        return cardsList
-    }
-
-    private fun getCardName(card: String) : String {
+        private fun getCardName(card: String) : String {
         val cols = card.split(",")
         return cols[1]
     }
@@ -109,5 +79,27 @@ class MainActivity : AppCompatActivity() {
     private fun getCardText(card: String) : String {
         val cols = card.split(",")
         return cols[5]
+    }
+
+    private fun leerArchivoCampeones() : ArrayList<String> {
+        // Open the cards file as a raw resource
+        val inputStream = resources.openRawResource(R.raw.base_cards)
+        val scanner = Scanner(inputStream)
+        // Read all the lines of the file
+        val cardsList = ArrayList<String>()
+        scanner.nextLine()
+        while(scanner.hasNextLine()) {
+            val line = scanner.nextLine()
+            cardsList.add(line)
+        }
+        scanner.close()
+        return cardsList
+    }
+
+    private fun BuscarCampeones() {
+        val listadeCampeones = leerArchivoCampeones()
+        for(campeon in listadeCampeones) {
+            addCard(campeon)
+        }
     }
 }
