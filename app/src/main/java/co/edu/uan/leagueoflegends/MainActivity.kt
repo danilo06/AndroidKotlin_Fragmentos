@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun addCard(card: String) {
+    private fun AgregaCampeonAlista(card: String) {
         val ib = ImageButton(this)
         var imageId = resources.getIdentifier(getCardCropImage(card),"drawable", packageName)
         if(imageId==0) {
@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity() {
     private fun BuscarCampeones() {
         val listadeCampeones = leerArchivoCampeones()
         for(campeon in listadeCampeones) {
-            addCard(campeon)
+            AgregaCampeonAlista(campeon)
         }
     }
 }
